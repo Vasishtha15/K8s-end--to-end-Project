@@ -8,14 +8,14 @@ pipeline {
         }
         stage ('Build') {
             steps {
-                sh 'docker build . -t  node-todo-cicd:latest'
+                sh 'docker build . -t  ayu1503/my-app:latest'
             }
         }
         stage ('Push to Docker Hub') {
             steps {
                 echo "Pushing the image to Docker Hub"
                 withCredentials([usernamePassword(credentialsId:"",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
-                sh "docker login -u dockerHubUser"
+                sh "docker login -u ${env.dockerHubUser} -p {env.dockerHubPass}"
             }
         }
         stage ('Testing') {

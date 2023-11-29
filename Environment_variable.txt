@@ -1,0 +1,6 @@
+Navigate to Jenkins Dashboard.
+Go to -> Manage jenkins -> System -> Add credential
+Select kind as "username and password"
+Fill- username, password, ID, description
+Now click on generate.
+Now you can see ID is generated, which can be used as env variable to pass the credentials.
